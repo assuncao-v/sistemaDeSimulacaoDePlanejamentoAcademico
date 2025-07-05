@@ -29,7 +29,9 @@ public class Aluno{
         
         if(validarQuantidadeHorasMaxima(quantidadeHorasMaxima)) this.quantidadeHorasMaxima = quantidadeHorasMaxima;
     }
-    
+    public boolean aprovado(Disciplina d){
+        return this.disciplinasCursadas.contains(d.getCodigo());
+    }
     private boolean validarNome(String nome){
         return true;
     }
