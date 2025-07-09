@@ -16,17 +16,18 @@ public abstract class Disciplina {
     private final String codigo;
     private final String nome;
     private int cargaHorariaSemanal;
-
+    private List<Turma> turmas = new ArrayList<>();
     private List<ValidadorPreRequisito> validadoresDePreRequisito;
     private List<Disciplina> coRequisitos;
 
     //Precisa de validação dos parâmetros com tratamento de exceção.
-    public Disciplina(String codigo, String nome, int cargaHorariaSemanal){
+    public Disciplina(String codigo, String nome, int cargaHorariaSemanal,List<Turma> turmas){
         this.codigo = codigo;
         this.nome = nome;
         this.cargaHorariaSemanal = cargaHorariaSemanal;
         this.validadoresDePreRequisito = new ArrayList<>();
         this.coRequisitos = new ArrayList<>();
+        this.turmas = turmas;
     }
 
     public Integer getCargaHorariaSemanal(){
