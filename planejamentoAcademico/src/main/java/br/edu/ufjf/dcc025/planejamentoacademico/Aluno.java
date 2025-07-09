@@ -16,30 +16,14 @@ public class Aluno{
     public final String matricula;
     public final List<Disciplina> disciplinasCursadas;
     private Integer quantidadeHorasMaxima;
-    //private Disciplina planejamentoFuturo; Não sei ainda como implementar. 
+    private List<Turma> planejamentoFuturo = new ArrayList<>();
     
     //Precisa implementar validação dos parâmetros com tratamento de exceção
-    public Aluno(String nome, String matricula, Integer quantidadeHorasMaxima){
-        if(validarNome(nome)) this.nome = nome;
-        else this.nome = "";
-        if(validarMatricula(matricula)) this.matricula = matricula;
-        else this.matricula = "";
-        
+    public Aluno(String nome, String matricula, Integer quantidadeHorasMaxima,List<Turma> planejamento) {
         disciplinasCursadas = new ArrayList<>();
-        
-        if(validarQuantidadeHorasMaxima(quantidadeHorasMaxima)) this.quantidadeHorasMaxima = quantidadeHorasMaxima;
-    }
-    public boolean aprovado(Disciplina d){
-        return this.disciplinasCursadas.contains(d.getCodigo());
-    }
-    private boolean validarNome(String nome){
-        return true;
-    }
-    private boolean validarMatricula(String matricula){
-        return true;
-    }
-    private boolean validarQuantidadeHorasMaxima(Integer validadorQuantidadeHorasMaxima){
-        return true;
+        planejamentoFuturo = planejamento;
+        this.nome = nome;
+        this.matricula = matricula;
     }
     
     public void adicionarDisciplinaCursada(Disciplina disciplina){
