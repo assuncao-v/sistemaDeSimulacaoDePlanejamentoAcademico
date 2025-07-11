@@ -4,8 +4,7 @@
  */
 package br.edu.ufjf.dcc025.planejamentoacademico;
 
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  *
@@ -14,27 +13,37 @@ import java.util.ArrayList;
 public class Aluno{
     public final String nome;
     public final String matricula;
-    public final List<Disciplina> disciplinasCursadas;
-    private Integer quantidadeHorasMaxima;
+    private int quantidadeHorasMaxima;
+
+
+    public final Map<Disciplina,Integer> historico;
     private List<Turma> planejamentoFuturo = new ArrayList<>();
-    
+    private List<String> codigoTurmasDesejadas;
+
+    private List<Turma> turmasAceitas;
+    private Map<Turma, String> turmasRejeitadas;
+
     //Precisa implementar validação dos parâmetros com tratamento de exceção
-    public Aluno(String nome, String matricula, Integer quantidadeHorasMaxima,List<Turma> planejamento) {
-        disciplinasCursadas = new ArrayList<>();
-        planejamentoFuturo = planejamento;
+    public Aluno(String nome, String matricula, int quantidadeHorasMaxima) {
         this.nome = nome;
         this.matricula = matricula;
-    }
-    
-    public void adicionarDisciplinaCursada(Disciplina disciplina){
-        disciplinasCursadas.add(disciplina);
-    }
-    
-    public Integer getQuantidadeHorasMaxima(){
-        return this.quantidadeHorasMaxima;
-    }
-    
-    public void setQuantidadeHorasMaxima(Integer quantidadeHorasMaxima){
         this.quantidadeHorasMaxima = quantidadeHorasMaxima;
+        historico = new HashMap<>();
+        codigoTurmasDesejadas = new ArrayList<>();
+        turmasAceitas = new ArrayList<>();
+        turmasRejeitadas = new LinkedHashMap<>();
     }
+
+    public boolean foiAprovado(Disciplina d){
+        int nota = historico.get(d);
+        return nota >= 60;
+    }
+
+    public void adicionarDisciplinaCursada(Disciplina d,int nota){
+        historico.put(d,nota);
+    }
+    public void adicionarTurmaNoPlanejamento(String turma){
+        return;
+    }
+
 }
