@@ -24,7 +24,7 @@ public abstract class Disciplina {
     public Disciplina(String codigo, String nome, int cargaHorariaSemanal,List<Turma> turmas){
         this.codigo = codigo;
         this.nome = nome;
-        this.cargaHorariaSemanal = cargaHorariaSemanal;
+        setCargaHorariaSemanal(cargaHorariaSemanal);
         this.validadoresDePreRequisito = new ArrayList<>();
         this.coRequisitos = new ArrayList<>();
         this.turmas = turmas;
@@ -63,7 +63,7 @@ public abstract class Disciplina {
     }
 
     public boolean validarPreRequisitos(Aluno aluno){
-        for(ValidadorPreRequisito validador : validadoresDePreRequisitos){
+        for(ValidadorPreRequisito validador : validadoresDePreRequisito){
             if(validador.validar(aluno,this)){
                 return false;
             }
