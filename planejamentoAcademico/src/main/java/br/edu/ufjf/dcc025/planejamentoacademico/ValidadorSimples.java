@@ -8,6 +8,6 @@ public class ValidadorSimples implements ValidadorPreRequisito{
 
     @Override
     public boolean validar(Aluno aluno, Disciplina disciplina) {
-        return aluno.aprovado(disciplinaPreRequisito);
+        return aluno.foiAprovado(disciplinaPreRequisito);
     }
 }
