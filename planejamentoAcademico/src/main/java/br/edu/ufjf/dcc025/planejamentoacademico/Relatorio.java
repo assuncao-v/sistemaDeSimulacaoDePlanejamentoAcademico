@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Relatorio {
+
     private List<Turma> turmasAceitas = new ArrayList<>();
     private Map<Turma,String> turmasRejeitadas = new LinkedHashMap<>();
 
@@ -24,7 +25,7 @@ public class Relatorio {
     public void imprimir(){
         System.out.println("Turmas aceitas: ");
         for(Turma t : turmasAceitas){
-            System.out.printf(%s,t.codigoDaDisciplina);
+            System.out.printf("%s",t.codigoDaDisciplina);
         }
     }
 
