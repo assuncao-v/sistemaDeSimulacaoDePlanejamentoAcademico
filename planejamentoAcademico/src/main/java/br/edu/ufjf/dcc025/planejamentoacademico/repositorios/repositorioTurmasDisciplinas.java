@@ -1,4 +1,7 @@
-package br.edu.ufjf.dcc025.planejamentoacademico;
+package br.edu.ufjf.dcc025.planejamentoacademico.repositorios;
+
+import br.edu.ufjf.dcc025.planejamentoacademico.modelo.Disciplina;
+import br.edu.ufjf.dcc025.planejamentoacademico.modelo.DisciplinaObrigatoria;
 
 import java.util.ArrayList;
 import java.util.List;

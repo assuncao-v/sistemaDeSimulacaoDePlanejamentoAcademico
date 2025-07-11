@@ -1,6 +1,6 @@
-package br.edu.ufjf.dcc025.planejamentoacademico;
+package br.edu.ufjf.dcc025.planejamentoacademico.modelo;
 
-public class DisciplinaOptativa extends Disciplina{
+public class DisciplinaOptativa extends Disciplina {
     public DisciplinaOptativa(String codigo, String nome, int cargaHorariaSemanal){
         super(codigo,nome,cargaHorariaSemanal);
     }

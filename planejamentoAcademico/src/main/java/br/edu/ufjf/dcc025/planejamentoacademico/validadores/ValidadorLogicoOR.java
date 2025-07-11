@@ -1,8 +1,11 @@
-package br.edu.ufjf.dcc025.planejamentoacademico;
+package br.edu.ufjf.dcc025.planejamentoacademico.validadores;
+
+import br.edu.ufjf.dcc025.planejamentoacademico.modelo.Aluno;
+import br.edu.ufjf.dcc025.planejamentoacademico.modelo.Disciplina;
 
 import java.util.List;
 
-public class ValidadorLogicoOR implements ValidadorPreRequisito{
+public class ValidadorLogicoOR implements ValidadorPreRequisito {
     private final List<Disciplina> preRequisitos;
     ValidadorLogicoOR(List<Disciplina> cursadas){
         preRequisitos = cursadas;

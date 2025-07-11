@@ -8,6 +8,6 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>21</maven.compiler.release>
-        <exec.mainClass>br.edu.ufjf.dcc025.planejamentoacademico.PlanejamentoAcademico</exec.mainClass>
+        <exec.mainClass>br.edu.ufjf.dcc025.planejamentoacademico.simulacao.PlanejamentoAcademico</exec.mainClass>
     </properties>
 </project>

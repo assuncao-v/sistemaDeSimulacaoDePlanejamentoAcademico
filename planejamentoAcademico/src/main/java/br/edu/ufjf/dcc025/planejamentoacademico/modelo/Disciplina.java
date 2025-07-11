@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.edu.ufjf.dcc025.planejamentoacademico;
+package br.edu.ufjf.dcc025.planejamentoacademico.modelo;
 
-import java.sql.Array;
+import br.edu.ufjf.dcc025.planejamentoacademico.validadores.ValidadorPreRequisito;
+
 import java.util.ArrayList;
 import java.util.List;
 

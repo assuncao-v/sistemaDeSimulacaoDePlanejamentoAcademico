@@ -2,7 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package br.edu.ufjf.dcc025.planejamentoacademico;
+package br.edu.ufjf.dcc025.planejamentoacademico.simulacao;
+
+import br.edu.ufjf.dcc025.planejamentoacademico.modelo.Aluno;
+import br.edu.ufjf.dcc025.planejamentoacademico.modelo.Disciplina;
+import br.edu.ufjf.dcc025.planejamentoacademico.modelo.Turma;
+import br.edu.ufjf.dcc025.planejamentoacademico.repositorios.repositorioTurmasDisciplinas;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -14,8 +19,8 @@ import java.util.Map;
  * @author assuncao-v
  */
 public class PlanejamentoAcademico {
-    private Map<String,Disciplina> disciplinasCodigo = new LinkedHashMap<>();
-    private Map<String,Turma> turmasCodigo = new LinkedHashMap<>();
+    private Map<String, Disciplina> disciplinasCodigo = new LinkedHashMap<>();
+    private Map<String, Turma> turmasCodigo = new LinkedHashMap<>();
     private List<Aluno> alunos = new ArrayList<>();
 
     PlanejamentoAcademico(){

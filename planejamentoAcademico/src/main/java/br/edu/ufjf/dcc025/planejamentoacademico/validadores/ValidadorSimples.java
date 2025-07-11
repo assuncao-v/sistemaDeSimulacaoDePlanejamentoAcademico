@@ -1,6 +1,9 @@
-package br.edu.ufjf.dcc025.planejamentoacademico;
+package br.edu.ufjf.dcc025.planejamentoacademico.validadores;
 
-public class ValidadorSimples implements ValidadorPreRequisito{
+import br.edu.ufjf.dcc025.planejamentoacademico.modelo.Aluno;
+import br.edu.ufjf.dcc025.planejamentoacademico.modelo.Disciplina;
+
+public class ValidadorSimples implements ValidadorPreRequisito {
     private final Disciplina disciplinaPreRequisito;
     public ValidadorSimples(Disciplina disciplina){
         this.disciplinaPreRequisito = disciplina;

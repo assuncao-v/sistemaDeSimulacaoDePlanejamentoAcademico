@@ -1,4 +1,6 @@
-package br.edu.ufjf.dcc025.planejamentoacademico;
+package br.edu.ufjf.dcc025.planejamentoacademico.simulacao;
+
+import br.edu.ufjf.dcc025.planejamentoacademico.modelo.Turma;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
