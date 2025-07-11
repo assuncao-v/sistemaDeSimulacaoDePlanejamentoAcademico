@@ -21,13 +21,12 @@ public abstract class Disciplina {
     private List<Disciplina> coRequisitos;
 
     //Precisa de validação dos parâmetros com tratamento de exceção.
-    public Disciplina(String codigo, String nome, int cargaHorariaSemanal,List<Turma> turmas){
+    public Disciplina(String codigo, String nome, int cargaHorariaSemanal){
         this.codigo = codigo;
         this.nome = nome;
         setCargaHorariaSemanal(cargaHorariaSemanal);
         this.validadoresDePreRequisito = new ArrayList<>();
         this.coRequisitos = new ArrayList<>();
-        this.turmas = turmas;
     }
 
     public Integer getCargaHorariaSemanal(){
@@ -53,7 +52,9 @@ public abstract class Disciplina {
     public void setValidadoresDePreRequisito(List<ValidadorPreRequisito> validadoresDePreRequisito) {
         this.validadoresDePreRequisito = validadoresDePreRequisito;
     }
-
+    public void alocarTurma(Turma turma){
+        turmas.add(turma);
+    }
     public List<Disciplina> getCoRequisitos() {
         return coRequisitos;
     }
