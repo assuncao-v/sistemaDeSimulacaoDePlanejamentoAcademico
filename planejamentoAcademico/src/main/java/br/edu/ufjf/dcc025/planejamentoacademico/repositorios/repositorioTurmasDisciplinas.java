@@ -28,6 +28,13 @@ public class repositorioTurmasDisciplinas {
         Disciplina labFis1 = new DisciplinaObrigatoria("FIS073","Laboratorio de fisica 1",2);
         Disciplina labTrans = new DisciplinaObrigatoria("QUI168","Laboratorio de transformacoes quimicas",2);
         Disciplina intEng = new DisciplinaObrigatoria("MAC011","Introducao a engenharia computacional",2);
+        Disciplina calc3 = new DisciplinaObrigatoria("MAT157","Calculo 3",4);
+        Disciplina ed = new DisciplinaObrigatoria("DCC013","Estrutura de dados",4);
+        Disciplina fis2 = new DisciplinaObrigatoria("FIS074","Fisica 2",4);
+        Disciplina oo = new DisciplinaObrigatoria("DCC025","Orientacao a objetos",4);
+        Disciplina modGeom = new DisciplinaObrigatoria("MAC036","Representacao grafica e modelagem geometrica",2);
+        Disciplina calcProb = new DisciplinaObrigatoria("EST029","Calculo de probabilidade",4);
+
 
         //1 Semestre
         disciplinas.add(calc1);
@@ -47,6 +54,14 @@ public class repositorioTurmasDisciplinas {
         disciplinas.add(labTrans);
         disciplinas.add(intEng);
 
+        //3 Semestre
+        disciplinas.add(calc3);
+        disciplinas.add(ed);
+        disciplinas.add(fis2);
+        disciplinas.add(calcProb);
+        disciplinas.add(modGeom);
+        disciplinas.add(oo);
+
         //Validadores para as matérias do segundo semestre
 
         calc2.adicionarValidadorPreRequisito(new ValidadorSimples(calc1));
@@ -62,13 +77,22 @@ public class repositorioTurmasDisciplinas {
         labTrans.adicionarValidadorPreRequisito(new ValidadorSimples(labQuim));
         intEng.adicionarValidadorPreRequisito(new ValidadorSimples(intCiencias));
 
+        //Validadores para as matérias do terceiro semestre
+
+        calc3.adicionarValidadorPreRequisito(new ValidadorSimples(calc2));
+        ed.adicionarValidadorPreRequisito(new ValidadorSimples(alg2));
+        ValidadorLogicoAND vAndFis2 = new ValidadorLogicoAND();
+        vAndFis2.adicionarValidador(new ValidadorSimples(calc2));
+        vAndFis2.adicionarValidador(new ValidadorSimples(fis1));
+        calcProb.adicionarValidadorPreRequisito(new ValidadorSimples(intEst));
+        modGeom.adicionarValidadorPreRequisito(new ValidadorSimples(ga));
 
 
 
 
 
 
-        //eletivas
+        //Eletivas
 
         Disciplina teoriaDosNumeros = new DisciplinaEletiva("MAT174","Teoria dos numeros",4);
         Disciplina fis4 = new DisciplinaEletiva("FIS076","Fisica 4",4);
