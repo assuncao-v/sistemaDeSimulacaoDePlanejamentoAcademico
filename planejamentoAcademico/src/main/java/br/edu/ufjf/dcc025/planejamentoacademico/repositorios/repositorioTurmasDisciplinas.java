@@ -1,14 +1,17 @@
 package br.edu.ufjf.dcc025.planejamentoacademico.repositorios;
 
 import br.edu.ufjf.dcc025.planejamentoacademico.modelo.Disciplina;
+import br.edu.ufjf.dcc025.planejamentoacademico.modelo.DisciplinaEletiva;
 import br.edu.ufjf.dcc025.planejamentoacademico.modelo.DisciplinaObrigatoria;
+import br.edu.ufjf.dcc025.planejamentoacademico.validadores.ValidadorLogicoAND;
+import br.edu.ufjf.dcc025.planejamentoacademico.validadores.ValidadorSimples;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class repositorioTurmasDisciplinas {
     public static List<Disciplina> carregarDisciplinas(){
-        List<Disciplina> disciplinasObrigatorias = new ArrayList<>();
+        List<Disciplina> disciplinas = new ArrayList<>();
         Disciplina calc1 = new DisciplinaObrigatoria("MAT154","Calculo 1",4);
         Disciplina alg = new DisciplinaObrigatoria("DCC199","Algoritmos",4);
         Disciplina algPratica = new DisciplinaObrigatoria("DCC5199","Algoritmos pratica",2);
@@ -27,22 +30,54 @@ public class repositorioTurmasDisciplinas {
         Disciplina intEng = new DisciplinaObrigatoria("MAC011","Introducao a engenharia computacional",2);
 
         //1 Semestre
-        disciplinasObrigatorias.add(calc1);
-        disciplinasObrigatorias.add(alg);
-        disciplinasObrigatorias.add(algPratica);
-        disciplinasObrigatorias.add(quimFundamental);
-        disciplinasObrigatorias.add(ga);
-        disciplinasObrigatorias.add(labIntFis);
-        disciplinasObrigatorias.add(intCiencias);
+        disciplinas.add(calc1);
+        disciplinas.add(alg);
+        disciplinas.add(algPratica);
+        disciplinas.add(quimFundamental);
+        disciplinas.add(ga);
+        disciplinas.add(labIntFis);
+        disciplinas.add(intCiencias);
         //2 Semestre
-        disciplinasObrigatorias.add(calc2);
-        disciplinasObrigatorias.add(alg2);
-        disciplinasObrigatorias.add(alg2Pratica);
-        disciplinasObrigatorias.add(fis1);
-        disciplinasObrigatorias.add(intEst);
-        disciplinasObrigatorias.add(labFis1);
-        disciplinasObrigatorias.add(labTrans);
-        disciplinasObrigatorias.add(intEng);
-        return disciplinasObrigatorias;
+        disciplinas.add(calc2);
+        disciplinas.add(alg2);
+        disciplinas.add(alg2Pratica);
+        disciplinas.add(fis1);
+        disciplinas.add(intEst);
+        disciplinas.add(labFis1);
+        disciplinas.add(labTrans);
+        disciplinas.add(intEng);
+
+        //Validadores para as matérias do segundo semestre
+
+        calc2.adicionarValidadorPreRequisito(new ValidadorSimples(calc1));
+        ValidadorLogicoAND vAndAlg = new ValidadorLogicoAND();
+        vAndAlg.adicionarValidador(new ValidadorSimples(alg));
+        vAndAlg.adicionarValidador(new ValidadorSimples(algPratica));
+        alg2.adicionarValidadorPreRequisito(vAndAlg);
+        alg2Pratica.adicionarValidadorPreRequisito(vAndAlg);
+        ValidadorLogicoAND vAndFis = new ValidadorLogicoAND();
+        vAndFis.adicionarValidador(new ValidadorSimples(calc2));
+        vAndFis.adicionarValidador(new ValidadorSimples(ga));
+        intEst.adicionarValidadorPreRequisito(new ValidadorSimples(calc1));
+        labTrans.adicionarValidadorPreRequisito(new ValidadorSimples(labQuim));
+        intEng.adicionarValidadorPreRequisito(new ValidadorSimples(intCiencias));
+
+
+
+
+
+
+
+        //eletivas
+
+        Disciplina teoriaDosNumeros = new DisciplinaEletiva("MAT174","Teoria dos numeros",4);
+        Disciplina fis4 = new DisciplinaEletiva("FIS076","Fisica 4",4);
+        disciplinas.add(teoriaDosNumeros);
+        disciplinas.add(fis4);
+
+        //Validadores para eletivas
+
+
+        return disciplinas;
     }
 }
