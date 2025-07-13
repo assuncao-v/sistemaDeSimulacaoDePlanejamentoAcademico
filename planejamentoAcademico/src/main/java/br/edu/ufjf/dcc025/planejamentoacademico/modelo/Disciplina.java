@@ -69,6 +69,26 @@ public abstract class Disciplina {
             }
         }
     }
+    public List<ValidadorPreRequisito>  getValidadoresDePreRequisito(){
+        return validadoresDePreRequisito;
+    }
+
+    private static Disciplina buscarDisciplinaPorCodigo(List<Disciplina> disciplinas, String codigo) {
+        for (Disciplina d : disciplinas) {
+            if (d.getCodigo().equals(codigo)) {
+                return d;
+            }
+        }
+        throw new IllegalArgumentException("Disciplina com código " + codigo + " não encontrada.");
+    }
+
+    public List<Turma> getTurmas(){
+        return turmas;
+    }
+
+    public void adicionarTurma(Turma turma){
+        turmas.add(turma);
+    }
 
     public abstract int getNivelDeImportancia();
 

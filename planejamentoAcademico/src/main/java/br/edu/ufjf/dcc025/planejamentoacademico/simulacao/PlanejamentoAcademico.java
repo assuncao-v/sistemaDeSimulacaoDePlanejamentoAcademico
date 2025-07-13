@@ -7,7 +7,7 @@ package br.edu.ufjf.dcc025.planejamentoacademico.simulacao;
 import br.edu.ufjf.dcc025.planejamentoacademico.modelo.Aluno;
 import br.edu.ufjf.dcc025.planejamentoacademico.modelo.Disciplina;
 import br.edu.ufjf.dcc025.planejamentoacademico.modelo.Turma;
-import br.edu.ufjf.dcc025.planejamentoacademico.repositorios.repositorioTurmasDisciplinas;
+import br.edu.ufjf.dcc025.planejamentoacademico.repositorios.RepositorioTurmasDisciplinas;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -28,7 +28,7 @@ public class PlanejamentoAcademico {
     }
 
     public void carregarDados(){
-        List<Disciplina> disciplinas = repositorioTurmasDisciplinas.carregarDisciplinas();
+        List<Disciplina> disciplinas = RepositorioTurmasDisciplinas.getDisciplinas();
         for(Disciplina d : disciplinas){
             disciplinasCodigo.put(d.getCodigo(),d);
         }

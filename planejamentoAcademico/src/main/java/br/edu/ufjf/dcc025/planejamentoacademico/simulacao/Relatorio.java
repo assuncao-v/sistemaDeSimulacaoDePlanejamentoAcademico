@@ -24,11 +24,31 @@ public class Relatorio {
     public Map<Turma,String> getTurmasRejeitadas(){
         return turmasRejeitadas;
     }
-    public void imprimir(){
+    public void imprimir() {
+        System.out.println("Relatorio de simulação de matrícula: ");
+        if(turmasAceitas.isEmpty() && turmasRejeitadas.isEmpty()){
+            System.out.println("Nenhuma turma processada");
+            return;
+        }
         System.out.println("Turmas aceitas: ");
-        for(Turma t : turmasAceitas){
-            System.out.printf("%s",t.codigoDaDisciplina);
+        if(turmasAceitas.isEmpty()){
+            System.out.println("Nenhuma!");
+        }
+        else{
+            for(Turma t : turmasAceitas){
+                System.out.printf("  - %s (%s)%n", t.getId(), t.getDisciplina().getNome());
+            }
+        }
+        System.out.println("Turmas rejeitadas: ");
+        if(turmasRejeitadas.isEmpty()){
+            System.out.println("Nenhuma! ");
+        }
+        else{
+            for(Map.Entry<Turma,String> entrada : turmasRejeitadas.entrySet()){
+                Turma t = entrada.getKey();
+                String motivo = entrada.getValue();
+                System.out.printf("  - %s (%s): %s%n", t.getId(), t.getDisciplina().getNome(), motivo);
+            }
         }
     }
-
 }
