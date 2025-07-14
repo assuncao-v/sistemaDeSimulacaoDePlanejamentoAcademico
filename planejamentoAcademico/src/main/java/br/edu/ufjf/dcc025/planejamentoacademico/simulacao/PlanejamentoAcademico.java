@@ -14,17 +14,22 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- *
- * @author assuncao-v
- */
 public class PlanejamentoAcademico {
-    private Map<String, Disciplina> disciplinasCodigo = new LinkedHashMap<>();
+    private static Map<String, Disciplina> disciplinasCodigo = new LinkedHashMap<>();
     private Map<String, Turma> turmasCodigo = new LinkedHashMap<>();
     private List<Aluno> alunos = new ArrayList<>();
 
-    PlanejamentoAcademico(){
-        carregarDados();
+    public static void main(String [] args){
+        RepositorioTurmasDisciplinas.carregarDados();
+        List<Disciplina> disciplinas = RepositorioTurmasDisciplinas.getDisciplinas();
+        Aluno aluno = new Aluno("João da Silva", "202501001", 20);
+        aluno.adicionarDisciplinaCursada(disciplinas.get(0), 70);
+        Turma turma1 = disciplinas.get(1).getTurmas().get(0);
+        Turma turma2 = disciplinas.get(2).getTurmas().get(0);
+        aluno.adicionarTurmaNoPlanejamento(turma1);
+        aluno.adicionarTurmaNoPlanejamento(turma2);
+        Relatorio relatorio = ServicoMatricula.simulacaoMatricula(aluno);
+        relatorio.imprimir();
     }
 
     public void carregarDados(){

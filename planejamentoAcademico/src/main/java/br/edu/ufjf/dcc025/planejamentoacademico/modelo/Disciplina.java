@@ -22,7 +22,6 @@ public abstract class Disciplina {
     private List<ValidadorPreRequisito> validadoresDePreRequisito;
     private List<Disciplina> coRequisitos;
 
-    //Precisa de validação dos parâmetros com tratamento de exceção.
     public Disciplina(String codigo, String nome, int cargaHorariaSemanal){
         this.codigo = codigo;
         this.nome = nome;

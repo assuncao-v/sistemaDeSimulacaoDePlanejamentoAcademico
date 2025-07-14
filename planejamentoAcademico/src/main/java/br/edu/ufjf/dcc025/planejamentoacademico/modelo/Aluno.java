@@ -29,8 +29,6 @@ public class Aluno{
     private List<Turma> turmasAceitas;
     private Map<Turma, String> turmasRejeitadas;
 
-    //Precisa implementar validação dos parâmetros com tratamento de exceção
-
     public Aluno(String nome, String matricula, int quantidadeHorasMaxima) {
         this.nome = nome;
         this.matricula = matricula;
@@ -50,7 +48,7 @@ public class Aluno{
         return planejamentoFuturo;
     }
 
-    public void validarMatricula(Turma turma, Relatorio relatorio) throws MatriculaException {
+    public boolean validarMatricula(Turma turma, Relatorio relatorio) throws MatriculaException {
         //verifica se ta cheio
         if(!turma.possuiVagas()){
             relatorio.rejeitar(turma,"Turma cheia");
@@ -73,8 +71,8 @@ public class Aluno{
             }
         }
         //passou por tudo
-
         relatorio.aceitar(turma);
+        return true;
     }
 
     public void adicionarDisciplinaCursada(Disciplina d,int nota){
@@ -83,5 +81,4 @@ public class Aluno{
     public void adicionarTurmaNoPlanejamento(Turma turma){
         planejamentoFuturo.add(turma);
     }
-
 }
